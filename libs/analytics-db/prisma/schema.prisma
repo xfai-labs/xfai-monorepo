@@ -1,0 +1,99 @@
+generator client {
+  provider        = "prisma-client-js"
+  output          = "../src/generated/client"
+  previewFeatures = ["views"]
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Pool {
+  id                 Int      @id @default(autoincrement())
+  tokenAddress       String   @unique
+  createdBlockNumber BigInt
+  timestamp          DateTime
+  decimals           Int
+  name               String
+  symbol             String
+}
+
+model PoolMetric {
+  tokenAddress String
+  blockNumber  BigInt
+  tokenBalance Decimal
+  feesEarned   Decimal
+  timestamp    DateTime
+  ethBalance   Decimal
+
+  @@id([tokenAddress, blockNumber])
+  @@index([timestamp])
+}
+
+model BlockTimestamp {
+  blockNumber BigInt
+  timestamp   DateTime
+
+  @@id([blockNumber, timestamp])
+  @@index([blockNumber], map: "BlockTimestamp_blockNumber_index")
+  @@index([timestamp], map: "BlockTimestamp_timestamp_index")
+}
+
+model EthPrice {
+  blockNumber BigInt  @id
+  usdPrice    Decimal
+  totalLocked Decimal
+}
+
+view MetricsToFetch {
+  tokenAddress String
+  blockNumber  BigInt
+  timestamp    DateTime
+
+  @@id([tokenAddress, blockNumber])
+}
+
+view ethpricetofetch {
+  blockNumber BigInt
+  timestamp   DateTime
+
+  @@id([blockNumber, timestamp])
+}
+
+view PoolAnalytic {
+  tokenAddress        String   @unique
+  name                String
+  symbol              String
+  tvl                 Decimal  @db.Decimal
+  price               Decimal  @db.Decimal
+  oldest_price        Decimal? @db.Decimal
+  volume              Decimal  @db.Decimal
+  fees                Decimal  @db.Decimal
+  weekold_price       Decimal? @db.Decimal
+  weekly_volume       Decimal? @db.Decimal
+  weekly_fees         Decimal? @db.Decimal
+  dayold_price        Decimal? @db.Decimal
+  daily_volume        Decimal? @db.Decimal
+  daily_fees          Decimal? @db.Decimal
+  daily_price_change  Decimal? @db.Decimal
+  weekly_price_change Decimal? @db.Decimal
+  price_change        Decimal? @db.Decimal
+}
+
+view TVLStats {
+  date DateTime @unique @db.Date
+  tvl  Decimal? @db.Decimal
+}
+
+view FeeStats {
+  date DateTime @unique @db.Date
+  fees Decimal? @db.Decimal
+}
+
+view XFitStats {
+  current       Decimal  @unique @db.Decimal
+  daily_change  Decimal? @db.Decimal
+  weekly_change Decimal? @db.Decimal
+  price         Decimal? @db.Decimal
+}

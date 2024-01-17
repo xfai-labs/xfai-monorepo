@@ -1,0 +1,27 @@
+{
+  "name": "@xfai-labs/sdk",
+  "version": "0.0.7",
+  "private": false,
+  "sideEffects": false,
+  "main": "./index.js",
+  "module": "./index.mjs",
+  "typings": "./index.d.ts",
+  "dependencies": {
+    "@xfai-labs/dex": "workspace:^",
+    "@enzoferey/ethers-error-parser": "^0.2.3",
+    "@ethersproject/abi": "^5.7.0",
+    "@ethersproject/address": "^5.7.0",
+    "@ethersproject/providers": "^5.7.2",
+    "@ethersproject/solidity": "^5.7.0",
+    "@ethersproject/units": "^5.7.0",
+    "ethers": "^5.7.2",
+    "bignumber.js": "^9.1.2"
+  },
+  "publishConfig": {
+    "directory": "../../dist/libs/sdk"
+  },
+  "peerDependencies": {
+    "ethers": "^5.7.2",
+    "@uniswap/token-lists": "1.0.0-beta.31"
+  }
+}

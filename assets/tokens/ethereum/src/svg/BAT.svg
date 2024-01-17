@@ -1,0 +1,13 @@
+<svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="100" height="100" fill="white" />
+  <path d="M85 72.0824L50.1676 52.1373L15 72.165L85 72.0824Z" fill="#662D91" />
+  <path d="M50.1788 12L50.1676 52.1373L85 72.0824L50.1788 12Z" fill="#9E1F63" />
+  <path d="M15 72.165L50.1677 52.1373L50.1789 12L15 72.165Z" fill="#FF5000" />
+  <path
+    d="M50.0962 36.3485L35.7165 60.3672H64.5404L50.0962 36.3485Z"
+    fill="white"
+    stroke="#FF5000"
+    stroke-width="0.875"
+    stroke-miterlimit="10"
+  />
+</svg>

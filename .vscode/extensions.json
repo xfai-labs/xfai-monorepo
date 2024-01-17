@@ -1,0 +1,19 @@
+{
+  "recommendations": [
+    "nrwl.angular-console",
+    "firsttris.vscode-jest-runner",
+    "dbaeumer.vscode-eslint",
+    "csstools.postcss",
+    "bradlc.vscode-tailwindcss",
+    "eamodio.gitlens",
+    "streetsidesoftware.code-spell-checker",
+    "gruntfuggly.todo-tree",
+    "nomicfoundation.hardhat-solidity",
+    "ambar.bundle-size",
+    "ms-python.python",
+    "visualstudioexptteam.vscodeintellicode",
+    "github.copilot",
+    "esbenp.prettier-vscode",
+    "prisma.prisma"
+  ]
+}

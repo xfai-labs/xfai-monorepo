@@ -1,0 +1,9 @@
+@use 'sass:map';
+@import './main';
+
+// COMPONENTS
+@import './components/logoIconAnimated';
+@import './components/rc-tooltip';
+@import './components/rc-dropdown';
+@import './components/rc-input-search-bar';
+@import './components/react-loading-skeleton';

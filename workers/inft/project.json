@@ -1,0 +1,21 @@
+{
+  "name": "inft",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "workers/inft/src",
+  "projectType": "application",
+  "targets": {
+    "deploy": {
+      "executor": "nx:run-commands",
+      "dependsOn": [
+        {
+          "target": "build",
+          "projects": "self"
+        }
+      ],
+      "options": {
+        "cwd": "workers/inft",
+        "command": "pnpm wrangler deploy"
+      }
+    }
+  }
+}

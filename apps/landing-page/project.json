@@ -1,0 +1,70 @@
+{
+  "name": "page",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/landing-page",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nx/next:build",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "dependsOn": ["^build"],
+      "options": {
+        "outputPath": "dist/apps/landing-page"
+      },
+      "configurations": {
+        "development": {},
+        "production": {}
+      }
+    },
+    "serve": {
+      "executor": "@nx/next:server",
+      "defaultConfiguration": "development",
+      "options": {
+        "port": 4300,
+        "buildTarget": "page:build",
+        "dev": true
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "page:build:development",
+          "dev": true
+        },
+        "production": {
+          "buildTarget": "page:build:production",
+          "dev": false
+        }
+      }
+    },
+    "export": {
+      "executor": "@nx/next:export",
+      "options": {
+        "buildTarget": "page:build:production"
+      }
+    },
+    "deploy": {
+      "executor": "nx:run-commands",
+      "dependsOn": [
+        {
+          "target": "export",
+          "projects": "self"
+        }
+      ],
+      "options": {
+        "command": "pnpm wrangler pages deploy dist/apps/landing-page/exported --project-name landing --branch={args.branch}"
+      },
+      "configurations": {
+        "production": {
+          "args": "--branch=production"
+        },
+        "preview": {
+          "args": "--branch=preview"
+        },
+        "private": {
+          "args": "--branch=private-m"
+        }
+      }
+    }
+  },
+  "tags": []
+}

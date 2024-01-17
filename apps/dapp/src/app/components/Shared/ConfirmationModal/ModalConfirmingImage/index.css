@@ -1,0 +1,28 @@
+.modal-confirming {
+  .modal-confirming-spinner {
+    position: absolute;
+    width: 32%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    fill: transparent;
+
+    rect {
+      border-radius: 8px;
+      stroke-width: 2px;
+      stroke-dasharray: 50;
+      stroke-linecap: round;
+      stroke: theme(colors.cyan);
+      animation: confirmingSpinner 2s ease-in-out infinite;
+    }
+  }
+}
+
+@keyframes confirmingSpinner {
+  from {
+    stroke-dashoffset: 130;
+  }
+  to {
+    stroke-dashoffset: 30;
+  }
+}

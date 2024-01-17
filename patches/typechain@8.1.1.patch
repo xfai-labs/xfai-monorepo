@@ -1,0 +1,15 @@
+diff --git a/dist/parser/abiParser.js b/dist/parser/abiParser.js
+index 8bc648b47d014873e2c32530e9e5190b2409c75a..3a239ab0935114b75ec0bf0a350cb7d18212ce12 100644
+--- a/dist/parser/abiParser.js
++++ b/dist/parser/abiParser.js
+@@ -255,6 +255,10 @@ function extractDocumentation(rawContents) {
+     catch (_a) {
+         return undefined;
+     }
++    if (json.natspec) {
++        return json.natspec;
++    }
++
+     if (!json || (!json.devdoc && !json.userdoc))
+         return undefined;
+     const result = json.devdoc || {};

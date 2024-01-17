@@ -1,0 +1,28 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "jsx": "preserve",
+    "allowJs": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": false,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "incremental": true,
+    "types": ["jest", "node"],
+    "paths": {
+      "@landing/config/*": ["apps/landing-page/config/*"],
+      "@landing/localization": ["apps/landing-page/localization/index.ts"],
+      "@landing/public/*": ["apps/landing-page/public/*"],
+      "@landing/components/*": ["apps/landing-page/components/*"],
+      "@landing/pages/*": ["apps/landing-page/pages/*"],
+      "@landing/style/*": ["apps/landing-page/style/*"],
+      "@landing/utils/*": ["apps/landing-page/utils/*"],
+      "@xfai-labs/ui-components": ["libs/ui-components/src/index.ts"]
+    }
+  },
+  "include": ["**/*.ts", "**/*.tsx", "**/*.js", "**/*.jsx", "next-env.d.ts"],
+  "exclude": ["node_modules", "jest.config.ts"]
+}

@@ -1,0 +1,15 @@
+{
+  "name": "@xfai-labs/dex",
+  "version": "0.1.2",
+  "main": "./src/index.cjs",
+  "module": "./src/index.js",
+  "dependencies": {
+    "@ethersproject/abi": "^5.7.0",
+    "@ethersproject/providers": "^5.7.2",
+    "ethers": "^5.7.2"
+  },
+  "devDependencies": {
+    "@typechain/ethers-v5": "^11.1.1",
+    "typechain": "^8.3.1"
+  }
+}

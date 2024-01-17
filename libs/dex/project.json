@@ -1,0 +1,110 @@
+{
+  "name": "dex",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/dex/src",
+  "projectType": "library",
+  "targets": {
+    "serve": {
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "libs/dex",
+        "command": "brownie run scripts/test_deployment.py main true"
+      },
+      "dependsOn": [
+        {
+          "target": "build",
+          "projects": "self"
+        }
+      ],
+      "outputs": ["{workspaceRoot}/dist/dex"]
+    },
+    "ganache": {
+      "executor": "nx:run-commands",
+      "options": {
+        "outputPath": "dist/dex",
+        "cwd": "libs/dex",
+        "command": "ganache-cli  --wallet.totalAccounts 10 --hardfork london --miner.blockGasLimit 6721975 --wallet.mnemonic brownie --server.port 8545 --chain.chainId 5777 --wallet.defaultBalance 100 --verbose"
+      }
+    },
+    "deploy": {
+      "executor": "nx:run-commands",
+      "options": {
+        "outputPath": "dist/dex",
+        "cwd": "libs/dex",
+        "command": "brownie run scripts/testdeployment.py"
+      },
+      "dependsOn": [
+        {
+          "target": "compile",
+          "projects": "self"
+        }
+      ]
+    },
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "compiler": "babel",
+        "format": ["cjs", "esm"],
+        "outputPath": "dist/libs/dex",
+        "main": "libs/dex/src/index.ts",
+        "babelConfig": "@nx/react/plugins/bundle-babel",
+        "tsConfig": "libs/dex/tsconfig.lib.json",
+        "assets": ["libs/dex/*.md"]
+      },
+      "dependsOn": [
+        {
+          "target": "compile",
+          "projects": "self"
+        }
+      ]
+    },
+    "compile": {
+      "executor": "nx:run-commands",
+      "options": {
+        "commands": [
+          "pnpm rimraf --glob libs/dex/src/**/*",
+          "pnpm exec typechain --target=ethers-v5  --out-dir=src ../../dist/dex/interfaces/IX*.json ../../dist/dex/interfaces/IInfinityNFTPeriphery.json ../../dist/dex/interfaces/IWETH.json  ../../dist/dex/interfaces/IERC20Metadata.json ../../dist/dex/interfaces/IAggregatorV3.json ../../dist/dex/interfaces/IMulticall3.json"
+        ],
+        "cwd": "libs/dex",
+        "parallel": false
+      },
+      "dependsOn": [
+        {
+          "target": "build-sol",
+          "projects": "self"
+        }
+      ]
+    },
+    "build-sol": {
+      "executor": "nx:run-commands",
+      "inputs": [
+        "{projectRoot}/contracts/**/*.sol",
+        "{projectRoot}/interfaces/**/*.sol",
+        "{projectRoot}/brownie-config.yaml"
+      ],
+      "options": {
+        "outputPath": "{workspaceRoot}/dist/libs",
+        "cwd": "libs/dex",
+        "parallel": false,
+        "commands": ["pnpm exec mkdirp ../../dist", "brownie compile --all"]
+      }
+    },
+    "test": {
+      "executor": "nx:run-commands",
+      "options": {
+        "outputPath": "dist/dex",
+        "cwd": "libs/dex",
+        "parallel": false,
+        "command": "brownie test"
+      },
+      "dependsOn": [
+        {
+          "target": "build-sol",
+          "projects": "self"
+        }
+      ]
+    }
+  },
+  "tags": []
+}

@@ -1,0 +1,32 @@
+name = "backend"
+main = "./src/index.ts"
+compatibility_date = "2023-01-26"
+account_id = "7c85d637863b94e96c754862535d0f05"
+
+
+workers_dev = false
+
+[env.linea]
+name="linea-backend"
+route = { pattern = "linea.backend.xfai.com", custom_domain = true }
+[env.linea.vars]
+CHAIN_ID=59144
+
+[env.ethereum-mainnet]
+name="ethereum-mainnet-backend"
+route = { pattern = "ethereum-mainnet.backend.xfai.com", custom_domain = true }
+[env.ethereum-mainnet.vars]
+CHAIN_ID=1
+
+[env.goerli]
+name="goerli-backend"
+route = { pattern = "goerli.backend.xfai.com", custom_domain = true }
+[env.goerli.vars]
+CHAIN_ID=5
+
+
+[env.goerli-optimism]
+name="goerli-optimism-backend"
+route = { pattern = "goerli-optimism.backend.xfai.com", custom_domain = true }
+[env.goerli-optimism.vars]
+CHAIN_ID=420

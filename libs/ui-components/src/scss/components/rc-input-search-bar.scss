@@ -1,0 +1,32 @@
+.search-bar-affix-wrapper {
+  @apply relative;
+
+  input {
+    @apply py-2.5 pl-10 pr-12 text-sm 2xl:py-3;
+  }
+
+  &.search-bar-small {
+    input {
+      @apply rounded-md border-none py-3 pl-10 pr-10 text-sm leading-none;
+    }
+  }
+
+  .search-bar-prefix {
+    @apply absolute inset-y-0 left-0 z-[1] flex aspect-square h-full items-center justify-center;
+
+    .search-bar-icon {
+      @apply h-4;
+    }
+  }
+  .search-bar-suffix {
+    @apply absolute inset-y-0 right-0 aspect-square h-full;
+
+    .search-bar-clear-icon {
+      @apply flex h-full w-full items-center justify-center;
+
+      &.search-bar-clear-icon-hidden {
+        @apply hidden;
+      }
+    }
+  }
+}

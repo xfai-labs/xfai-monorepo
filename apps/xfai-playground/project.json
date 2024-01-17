@@ -1,0 +1,40 @@
+{
+  "name": "xfai-playground",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/xfai-playground/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nx/esbuild:esbuild",
+      "defaultConfiguration": "development",
+      "options": {
+        "platform": "node",
+        "outputPath": "dist/apps/xfai-playground",
+        "format": ["cjs"],
+        "bundle": false,
+        "main": "apps/xfai-playground/src/main.ts",
+        "tsConfig": "apps/xfai-playground/tsconfig.json",
+        "assets": ["apps/xfai-playground/src/assets"],
+        "generatePackageJson": true,
+        "esbuildOptions": {
+          "sourcemap": true,
+          "outExtension": {
+            ".js": ".js"
+          }
+        }
+      },
+      "configurations": {},
+      "dependsOn": ["^build"]
+    },
+    "run": {
+      "executor": "@nx/js:node",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "xfai-playground:build",
+        "inspect": true,
+        "watch": true
+      }
+    }
+  },
+  "tags": []
+}

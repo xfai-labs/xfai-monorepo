@@ -1,0 +1,82 @@
+{
+  "name": "dapp",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/dapp/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nx/vite:build",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "development",
+      "options": {
+        "outputPath": "dist/apps/dapp"
+      },
+      "configurations": {
+        "development": {
+          "extractLicenses": false,
+          "sourceMap": true
+        },
+        "production": {
+          "sourceMap": false,
+          "mode": "production",
+          "sourcemap": "hidden"
+        },
+        "preview": {
+          "sourceMap": false,
+          "mode": "production",
+          "sourcemap": "hidden"
+        }
+      },
+      "dependsOn": ["^build"]
+    },
+    "serve": {
+      "executor": "@nx/vite:dev-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "dapp:build",
+        "hmr": true
+      }
+    },
+    "deploy": {
+      "executor": "nx:run-commands",
+      "dependsOn": [
+        {
+          "target": "build",
+          "projects": "self"
+        }
+      ],
+      "options": {
+        "commands": [
+          {
+            "command": "pnpm rimraf --glob dist/apps/dapp/**/*.js.map",
+            "forwardAllArgs": false
+          },
+          {
+            "command": "pnpm wrangler pages deploy dist/apps/dapp --project-name dapp --branch={args.branch}",
+            "forwardAllArgs": false
+          }
+        ],
+        "parallel": false
+      },
+      "configurations": {
+        "production": {
+          "args": "--branch=development"
+        },
+        "preview": {
+          "args": "--branch=preview"
+        },
+        "private": {
+          "args": "--branch=private-m"
+        }
+      }
+    },
+    "preview": {
+      "executor": "@nx/vite:preview-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "dapp:build"
+      }
+    }
+  },
+  "tags": []
+}

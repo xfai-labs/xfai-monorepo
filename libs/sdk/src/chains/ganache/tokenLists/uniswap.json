@@ -1,0 +1,29 @@
+{
+  "name": "CoinGecko",
+  "logoURI": "https://www.coingecko.com/assets/thumbnail-007177f3eca19695592f0b8b0eabbdae282b54154e1be912285c9034ea6cbaf2.png",
+  "keywords": ["defi"],
+  "timestamp": "2023-01-10T10:07:07.109+00:00",
+  "tokens": [
+    {
+      "chainId": 1,
+      "address": "0xf61bf4d1a948487d61b8fa63808aac06bda55f98",
+      "name": "Tr3zor",
+      "symbol": "TR3",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/21980/thumb/9T9OoYXE_400x400.jpg?1640573690"
+    },
+    {
+      "chainId": 1,
+      "address": "0xe88f8313e61a97cec1871ee37fbbe2a8bf3ed1e4",
+      "name": "Sora Validator",
+      "symbol": "VAL",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/13299/thumb/val-gold-256.png?1607242927"
+    }
+  ],
+  "version": {
+    "major": 1178,
+    "minor": 0,
+    "patch": 0
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "target": "ESNext",
+    "useDefineForClassFields": true,
+    "module": "ESNext",
+    "strict": true,
+    "moduleResolution": "Node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "types": ["vite/client"],
+    "noEmit": false,
+    "lib": ["DOM", "DOM.Iterable", "ESNext"],
+    "allowJs": false,
+    "esModuleInterop": false,
+    "skipLibCheck": true,
+    "allowSyntheticDefaultImports": true,
+    "forceConsistentCasingInFileNames": true,
+    "jsx": "react-jsx",
+    "paths": {
+      "@dapp/utils/*": ["apps/dapp/src/utils/*"],
+      "@dapp/modals/*": ["apps/dapp/src/app/modals/*"],
+      "@dapp/pages/*": ["apps/dapp/src/app/pages/*"],
+      "@dapp/assets/*": ["apps/dapp/assets/*"],
+      "@dapp/components/*": ["apps/dapp/src/app/components/*"],
+      "@dapp/router/*": ["apps/dapp/src/router/*"],
+      "@dapp/localization": ["apps/dapp/src/localization/index.ts"],
+      "@dapp/config/*": ["apps/dapp/src/config/*"],
+      "@dapp/hooks/*": ["apps/dapp/src/hooks/*"],
+      "@dapp/context/*": ["apps/dapp/src/context/*"],
+      "@dapp/types/*": ["apps/dapp/src/types/*"],
+      "@xfai-labs/dex": ["libs/dex/src/index.ts"],
+      "@xfai-labs/ui-components": ["libs/ui-components/src/index.ts"],
+      "@xfai-labs/web3": ["libs/web3/src/index.js"],
+      "@xfai-labs/sdk": ["libs/sdk/src/index.ts"]
+    }
+  },
+  "files": [
+    "../../node_modules/@nx/react/typings/cssmodule.d.ts",
+    "../../node_modules/@nx/react/typings/image.d.ts"
+  ],
+  "exclude": [],
+  "include": ["**/*.js", "**/*.jsx", "**/*.ts", "**/*.tsx", "types.d.ts", "vite.config.mts"]
+}

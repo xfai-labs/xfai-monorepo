@@ -1,0 +1,29 @@
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spinner-circle-rotate {
+  50% {
+    transform: scale(1) translate(-50%, -50%);
+  }
+}
+
+@keyframes ticker {
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes opacity-show {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

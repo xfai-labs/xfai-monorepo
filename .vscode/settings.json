@@ -1,0 +1,46 @@
+{
+  "cSpell.words": [
+    "BASISPOINT",
+    "cssmodule",
+    "devkit",
+    "Dexfai",
+    "ethersproject",
+    "favicons",
+    "headlessui",
+    "IERC",
+    "inft",
+    "INFTS",
+    "IXFETH",
+    "keccak",
+    "Linea",
+    "multicall",
+    "nrwl",
+    "Numberish",
+    "Permille",
+    "pmmmwh",
+    "preinstall",
+    "svgr",
+    "tailwindcss",
+    "tanstack",
+    "TWAP",
+    "typechain",
+    "usehooks",
+    "walletconnect",
+    "Webfont",
+    "xfai",
+    "xfit"
+  ],
+  "files.eol": "\n",
+  "eslint.format.enable": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll": "explicit"
+  },
+  "files.associations": {
+    "*.css": "postcss"
+  },
+  "gitlens.telemetry.enabled": false,
+  "nxConsole.enableTelemetry": false,
+  "cSpell.enableFiletypes": ["tailwindcss"],
+  "cSpell.language": "en",
+  "sql-formatter.uppercase": true
+}

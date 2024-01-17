@@ -1,0 +1,52 @@
+.light {
+  .hero-animation {
+    .grid path {
+      stroke: url(#__lottie_element_50);
+    }
+
+    .platforms path {
+      fill: #000000;
+    }
+
+    .white_fill path {
+      fill: #000000;
+    }
+
+    .gray_outline path,
+    .white_outline path {
+      stroke: #0c0c44;
+    }
+
+    .gray_fill path {
+      fill: #0c0c44;
+    }
+
+    .medium_gray_outline path {
+      stroke: #c5c5c5;
+    }
+
+    .medium_gray_fill path {
+      fill: #c5c5c5;
+    }
+
+    .dark_gray_fill path {
+      fill: #dfdfdf;
+    }
+
+    .cube_black .cube_black_top path {
+      fill: #dddddd;
+    }
+
+    .cube_black .cube_black_right path {
+      fill: #afafaf;
+    }
+
+    .cube_black .cube_black_left path {
+      fill: #c4c4c4;
+    }
+
+    g.pink_button > .pink_button path {
+      stroke: #efecf0;
+    }
+  }
+}

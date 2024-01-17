@@ -1,0 +1,11 @@
+name = "nft"
+main = "./src/index.ts"
+account_id = "7c85d637863b94e96c754862535d0f05"
+compatibility_date = "2023-02-01"
+workers_dev = false
+routes = [
+    { pattern = "xfai.com/nft" ,zone_name = "xfai.com"  },
+    { pattern = "xfai.com/nft/*" ,zone_name = "xfai.com"  },
+    { pattern = "www.xfai.com/nft/*" ,zone_name = "xfai.com"  },
+    { pattern = "www.xfai.com/nft" ,zone_name = "xfai.com"  }
+]

@@ -1,0 +1,55 @@
+{
+  "name": "analytics-page",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/analytics-page",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nx/next:build",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "outputPath": "dist/apps/analytics-page"
+      },
+      "configurations": {
+        "development": {
+          "outputPath": "apps/analytics-page"
+        },
+        "production": {}
+      }
+    },
+    "serve": {
+      "executor": "@nx/next:server",
+      "defaultConfiguration": "development",
+      "options": {
+        "port": 4400,
+        "buildTarget": "analytics-page:build",
+        "dev": true
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "analytics-page:build:development",
+          "dev": true
+        },
+        "production": {
+          "buildTarget": "analytics-page:build:production",
+          "dev": false
+        }
+      }
+    },
+    "export": {
+      "executor": "@nx/next:export",
+      "options": {
+        "buildTarget": "analytics-page:build:production"
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/analytics-page/**/*.{ts,tsx,js,jsx}"]
+      }
+    }
+  },
+  "tags": []
+}

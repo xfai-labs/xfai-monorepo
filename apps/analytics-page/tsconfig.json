@@ -1,0 +1,42 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "jsx": "preserve",
+    "allowJs": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": false,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "incremental": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "paths": {
+      "@analytics/types/*": ["apps/analytics-page/types/*"],
+      "@analytics/config/*": ["apps/analytics-page/app/config/*"],
+      "@analytics/localization": ["apps/analytics-page/app/localization/index.ts"],
+      "@analytics/components/*": ["apps/analytics-page/app/components/*"],
+      "@analytics/pages/*": ["apps/analytics-page/app/pages/*"],
+      "@analytics/style/*": ["apps/analytics-page/app/style/*"],
+      "@analytics/utils/*": ["apps/analytics-page/app/utils/*"],
+      "@analytics/assets/*": ["apps/analytics-page/app/assets/*"],
+      "@xfai-labs/ui-components": ["libs/ui-components/src/index.ts"]
+    },
+    "strictNullChecks": true
+  },
+  "include": [
+    "**/*.ts",
+    "**/*.tsx",
+    "**/*.js",
+    "**/*.jsx",
+    "../../apps/analytics-page/.next/types/**/*.ts",
+    "../../dist/apps/analytics-page/.next/types/**/*.ts",
+    "next-env.d.ts"
+  ],
+  "exclude": ["node_modules", "jest.config.ts", "src/**/*.spec.ts", "src/**/*.test.ts"]
+}

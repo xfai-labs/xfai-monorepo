@@ -1,0 +1,31 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "rootDir": ".",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "es2015",
+    "module": "ESNext",
+    "lib": ["es2020", "dom"],
+    "skipLibCheck": true,
+    "resolveJsonModule": true,
+    "skipDefaultLibCheck": true,
+    "strict": true,
+    "baseUrl": ".",
+    "paths": {
+      "@xfai-labs/analytics-db": ["libs/analytics-db/src/index.ts"],
+      "@xfai-labs/dex": ["libs/dex/src/index.ts"],
+      "@xfai-labs/sdk": ["libs/sdk/src/index.ts"],
+      "@xfai-labs/ui-components": ["libs/ui-components/src/index.ts"]
+    },
+    "strictPropertyInitialization": false,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "isolatedModules": true
+  },
+  "exclude": ["node_modules", "tmp", "dist"]
+}

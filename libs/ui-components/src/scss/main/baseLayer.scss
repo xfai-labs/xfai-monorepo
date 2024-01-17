@@ -1,0 +1,115 @@
+@import './colors';
+
+@layer base {
+  :root {
+    &.dark {
+      @each $color, $value in map-get($colors, dark) {
+        --#{$color}: #{to-rgb($value)};
+      }
+    }
+
+    &.light {
+      @each $color, $value in map-get($colors, light) {
+        --#{$color}: #{to-rgb($value)};
+      }
+    }
+  }
+
+  *::-webkit-scrollbar {
+    @apply w-2 lg:w-4;
+  }
+
+  *::-webkit-scrollbar-track {
+    @apply lg:bg-60 bg-transparent;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    @apply bg-30 bg-opacity-40;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply text-white-blue font-medium;
+  }
+
+  .input,
+  input[type='text'],
+  input[type='number'],
+  input[type='email'],
+  input[type='password'],
+  input[type='search'],
+  input[type='tel'],
+  input[type='url'],
+  textarea {
+    @apply text-white-blue border-50 bg-60 m-0 w-full max-w-full rounded-lg border p-2.5 text-sm font-normal leading-none outline-none transition-colors duration-100 lg:p-3.5;
+    @apply placeholder:text-30 placeholder:opacity-100;
+    @apply focus:border-40 focus-within:border-40 focus-visible:border-40;
+    text-align: inherit;
+  }
+
+  .input {
+    @apply flex items-center gap-3.5;
+
+    &.disabled {
+      @apply text-10;
+    }
+
+    p {
+      @apply break-all;
+    }
+  }
+
+  textarea {
+    @apply resize-none leading-5;
+  }
+
+  input[type='number'] {
+    @apply px-[0.938rem] py-[0.813rem] text-lg;
+  }
+
+  html {
+    @apply bg-bg;
+  }
+
+  body {
+    @apply text-10 bg-bg;
+  }
+
+  #root,
+  #__next {
+    @apply z-10 flex flex-col;
+  }
+
+  html,
+  body,
+  #root,
+  #__next {
+    @apply min-safe-h-screen overflow-x-hidden;
+  }
+
+  .min-safe-h-screen {
+    min-height: calc(100vh - env(safe-area-inset-bottom, 0) - env(safe-area-inset-top, 0));
+  }
+
+  .max-safe-h-screen {
+    max-height: calc(100vh - env(safe-area-inset-bottom, 0) - env(safe-area-inset-top, 0));
+  }
+
+  @supports (-webkit-touch-callout: none) {
+    .min-safe-h-screen {
+      min-height: -webkit-fill-available;
+    }
+
+    .max-safe-h-screen {
+      max-height: -webkit-fill-available;
+    }
+  }
+
+  .pb-navbar {
+    padding-bottom: calc(0.625rem + env(safe-area-inset-bottom));
+  }
+}

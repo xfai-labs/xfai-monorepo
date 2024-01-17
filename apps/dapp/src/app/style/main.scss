@@ -1,0 +1,87 @@
+// UI SDK
+@import '../../../../../libs/ui-components/src/scss/styles.scss';
+
+@tailwind components;
+@tailwind utilities;
+
+// Web3 Onboard
+onboard-v2 {
+  --w3o-font-family: 'Rubik';
+  --font-family-normal: 'Rubik';
+  --onboard-font-family-light: 'Rubik';
+  --onboard-font-family-normal: 'Rubik';
+  --onboard-font-family-semibold: 'Rubik';
+
+  --onboard-modal-background: rgb(var(--grey-70));
+  --onboard-modal-color: rgb(var(--grey-5));
+  --onboard-link-color: #33cbcb;
+  --onboard-primary-500: #ff0098;
+  --w3o-action-color: #ff0098;
+  --onboard-connect-header-color: rgb(var(--white-black));
+  --w3o-border-color: rgb(var(--grey-50));
+  --w3o-border-radius: 20px;
+  --onboard-white: rgb(var(--grey-70));
+
+  --onboard-gray-500: rgb(var(--grey-20));
+
+  --onboard-close-button-color: rgb(var(--grey-10));
+
+  --onboard-wallet-button-background: rgb(var(--grey-60));
+  --onboard-wallet-button-background-hover: rgb(var(--grey-70) / 0.2);
+  --onboard-wallet-button-color: rgb(var(--white-black));
+  --onboard-wallet-button-color-hover: rgb(var(--white-black));
+  --onboard-wallet-button-border-radius: 16px;
+  --onboard-wallet-app-icon-background-transparent: rgb(var(--grey-50) / 0.4);
+  --onboard-wallet-app-icon-background-light-gray: white;
+  --onboard-wallet-app-icon-background-white: white;
+
+  --onboard-checkbox-background: #33cbcb;
+  --onboard-checkbox-color: white;
+
+  --onboard-connect-sidebar-progress-background: rgb(var(--grey-40));
+  --onboard-connect-sidebar-progress-color: #ff0098;
+}
+
+onboard-v2 .wallets-container {
+  justify-content: center !important;
+}
+
+onboard-v2 .connecting-container {
+  border-radius: 16px !important;
+}
+
+onboard-v2 .wallet-button-container-inner {
+  padding: 0.75rem !important;
+}
+
+// Update Toast
+.plugin-web-update-notice-content {
+  @apply bg-90 text-white-black relative w-auto max-w-full overflow-hidden rounded-lg px-5 pb-6 pt-7;
+  @apply ml-[24px] flex flex-col gap-1.5;
+  @apply before:bg-magenta before:absolute before:inset-x-0 before:top-0 before:block before:h-1;
+}
+
+.plugin-web-update-notice-content-title {
+  @apply text-white-blue m-0 p-0 text-xl font-medium leading-tight;
+}
+
+.plugin-web-update-notice-content-desc {
+  @apply text-5 m-0 p-0 text-base font-normal leading-tight;
+}
+
+.plugin-web-update-notice-tools {
+  @apply flex items-center justify-start gap-1.5;
+}
+
+.plugin-web-update-notice-btn {
+  @apply m-0 mt-2 cursor-pointer rounded-md p-0 px-4 py-2 transition-colors;
+  @apply text-base font-medium leading-none;
+}
+
+.plugin-web-update-notice-refresh-btn {
+  @apply bg-magenta hover:bg-magenta-dark text-white hover:text-white;
+}
+
+.plugin-web-update-notice-dismiss-btn {
+  @apply bg-50 hover:bg-40 text-5 hover:text-5;
+}

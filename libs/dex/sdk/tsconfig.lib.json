@@ -1,0 +1,14 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "outDir": "../../../dist/out-tsc",
+    "declaration": true,
+    "types": ["node"]
+  },
+  "include": ["../../sdk/src/**/*.ts"],
+  "exclude": [
+    "../../sdk/jest.config.ts",
+    "../../sdk/src/**/*.spec.ts",
+    "../../sdk/src/**/*.test.ts"
+  ]
+}

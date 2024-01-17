@@ -1,0 +1,119 @@
+.logo-icon-animated {
+  #lines-clipPath,
+  #arrows-clipPath {
+    width: 0;
+    height: 0;
+    opacity: 0;
+    position: fixed;
+    z-index: -9999;
+  }
+
+  .line,
+  .arrow {
+    fill: none;
+    stroke-miterlimit: 10;
+    stroke-dasharray: 250;
+    stroke-dashoffset: 500;
+    animation: logoStrokeAnimationDefault 30s ease-in-out alternate infinite;
+  }
+
+  &.logo-icon-animated-init {
+    .line,
+    .arrow {
+      animation: logoStrokeAnimationInit 2s ease-in-out forwards;
+    }
+  }
+
+  &.logo-icon-animated-hover {
+    .line,
+    .arrow {
+      animation: logoStrokeAnimationHover 4s ease-in-out infinite forwards;
+    }
+  }
+
+  &.logo-icon-animated-loop {
+    .line,
+    .arrow {
+      animation: logoStrokeAnimationInfiniteSpinner 4s ease-in-out alternate infinite;
+    }
+  }
+
+  .line {
+    stroke-width: 13px;
+    clip-path: url(#lines-clipPath);
+  }
+
+  .arrow {
+    stroke-width: 40px;
+    clip-path: url(#arrows-clipPath);
+  }
+}
+
+// Animations
+@keyframes logoStrokeAnimationInit {
+  0%,
+  10% {
+    stroke-dashoffset: 750;
+  }
+
+  100% {
+    stroke-dashoffset: 500;
+  }
+}
+
+@keyframes logoStrokeAnimationDefault {
+  0%,
+  1% {
+    stroke-dashoffset: 500;
+  }
+
+  6% {
+    stroke-dashoffset: 750;
+  }
+
+  6.5%,
+  8% {
+    stroke-dashoffset: 750;
+  }
+
+  12%,
+  13% {
+    stroke-dashoffset: 500;
+  }
+}
+
+@keyframes logoStrokeAnimationInfiniteSpinner {
+  0% {
+    stroke-dashoffset: 500;
+  }
+
+  40%,
+  50% {
+    stroke-dashoffset: 750;
+  }
+
+  90% {
+    stroke-dashoffset: 500;
+  }
+}
+
+@keyframes logoStrokeAnimationHover {
+  0%,
+  10% {
+    stroke-dashoffset: 500;
+  }
+
+  45% {
+    stroke-dashoffset: 750;
+  }
+
+  50%,
+  65% {
+    stroke-dashoffset: 750;
+  }
+
+  90%,
+  100% {
+    stroke-dashoffset: 500;
+  }
+}

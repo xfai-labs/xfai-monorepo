@@ -1,0 +1,32 @@
+{
+  "name": "ethereum-tokens",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "assets/tokens/ethereum/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "development",
+      "options": {
+        "compiler": "babel",
+        "outputPath": "dist/assets/tokens/ethereum",
+        "main": "assets/tokens/ethereum/src/main.ts",
+        "tsConfig": "assets/tokens/ethereum/tsconfig.json",
+        "assets": ["assets/tokens/ethereum/src/svg/*"]
+      },
+      "configurations": {},
+      "dependsOn": ["^build"]
+    },
+    "run": {
+      "executor": "@nx/js:node",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "ethereum-tokens:build",
+        "inspect": false,
+        "watch": false
+      }
+    }
+  },
+  "tags": []
+}

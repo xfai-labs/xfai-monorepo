@@ -1,0 +1,30 @@
+{
+  "name": "backend",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "workers/backend/src",
+  "projectType": "application",
+  "targets": {
+    "deploy": {
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "workers/backend",
+        "command": "pnpm wrangler deploy  --env={args.env}"
+      },
+      "defaultConfiguration": "goerli",
+      "configurations": {
+        "linea": {
+          "args": "--env=linea"
+        },
+        "ethereum-mainnet": {
+          "args": "--env=ethereum-mainnet"
+        },
+        "goerli": {
+          "args": "--env=goerli"
+        },
+        "optimism-goerli": {
+          "args": "--env=goerli-optimism"
+        }
+      }
+    }
+  }
+}

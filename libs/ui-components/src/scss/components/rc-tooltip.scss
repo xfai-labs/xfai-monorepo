@@ -1,0 +1,129 @@
+.tooltip-trigger {
+  @apply relative inline-flex cursor-pointer;
+
+  > div:last-child {
+    @apply h-full w-full;
+  }
+}
+
+.tooltip,
+.tooltip-overlay {
+  @apply visible absolute z-[600] flex flex-col px-2 text-xs;
+
+  &-hidden {
+    @apply hidden;
+  }
+
+  .tooltip-arrow {
+    @apply relative z-[1] flex h-0 w-0 items-end justify-center;
+
+    &::before {
+      @apply border-b-50 dark:border-b-40 h-0 w-0 border-8 border-transparent content-[''];
+    }
+  }
+
+  .tooltip-content {
+    @apply relative flex min-w-[3.75rem] max-w-[17rem] flex-col items-center justify-center;
+
+    .tooltip-inner {
+      @apply bg-60 dark:bg-50 border-50 dark:border-40 text-white-blue w-auto max-w-full shrink-0 rounded-lg border p-2.5 text-center no-underline drop-shadow-2xl;
+      text-decoration: none;
+    }
+  }
+
+  &.tooltip-slide-enter,
+  &.tooltip-slide-appear {
+    @apply opacity-0;
+    animation-duration: 0.1s;
+    animation-fill-mode: both;
+    animation-timing-function: ease-in-out;
+    animation-play-state: paused;
+  }
+
+  &.tooltip-slide-enter.tooltip-slide-enter-active,
+  &.tooltip-slide-appear.tooltip-slide-appear-active {
+    animation-name: TooltipFadeIn;
+    animation-play-state: running;
+  }
+
+  &.tooltip-slide-leave {
+    @apply block;
+    animation-duration: 0.05s;
+    animation-fill-mode: both;
+    animation-timing-function: ease-in-out;
+    animation-play-state: paused;
+
+    &.tooltip-slide-leave-active {
+      animation-name: TooltipFadeOut;
+      animation-play-state: running;
+    }
+  }
+
+  &.tooltip-placement-top {
+    .tooltip-arrow {
+      @apply order-last items-start;
+
+      &::before {
+        @apply border-t-30 border-b-transparent;
+      }
+    }
+  }
+
+  &.tooltip-placement-right {
+    @apply flex-row;
+
+    .tooltip-arrow {
+      @apply order-first items-center;
+
+      &::before {
+        @apply border-r-30 -translate-x-1/2 border-b-transparent;
+      }
+    }
+
+    .tooltip-content {
+      @apply flex-row justify-start;
+
+      .tooltip-inner {
+        @apply text-left;
+      }
+    }
+  }
+
+  &.tooltip-placement-left {
+    @apply flex-row;
+
+    .tooltip-arrow {
+      @apply order-last items-center;
+
+      &::before {
+        @apply border-l-30 translate-x-1/2 border-b-transparent;
+      }
+    }
+
+    .tooltip-content {
+      @apply flex-row justify-end;
+
+      .tooltip-inner {
+        @apply text-left;
+      }
+    }
+  }
+}
+
+@keyframes TooltipFadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes TooltipFadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
